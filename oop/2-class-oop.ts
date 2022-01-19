@@ -24,6 +24,7 @@
       };
     }
   }
+
   const minji = MakingCoffee.makeCoffee(100, 2);
   eval('console').log(minji);
 }
