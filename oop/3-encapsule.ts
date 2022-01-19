@@ -3,12 +3,14 @@
   // protected => 아무나 외부에서 접근은 못하지만 부모 상속을받은 자식 클래스만 접근 가능
   // public => 아무것도 안붙일때 다 public이다.
   // 그리고 fillCoffeeBeans 이라는 함수를 만들어 coffeebean을 채울때 함수를 따로 만들어서 만약 누군가 -값이나 0을 추가했다면 바보같다는 에러를 날려주고, 그 외에것들은 추가할수있도록 만들어준다.
+  // 그리고 밖에서 애새끼를 까게 만들고싶은게아니라 내가 method를 정햇다. 하면 constructor를 private으로 만들면 밖에서 object를 만들때 에러가 나서 우리의 method를 찾게끔 자동탭이 연결해준다.
+
   class MakingCoffee {
     private static perShot: number = 10;
     private coffeeBean: number;
     shot: number;
 
-    constructor(coffeeBean: number, shot: number) {
+    private constructor(coffeeBean: number, shot: number) {
       this.coffeeBean = coffeeBean;
       this.shot = shot;
     }
@@ -36,7 +38,7 @@
     }
   }
 
-  const minji = new MakingCoffee(100, 2);
+  const minji = MakingCoffee.makeCoffee(100, 2);
   eval('console').log(minji);
   minji.fillCoffeeBeans(200);
   eval('console').log(minji);
