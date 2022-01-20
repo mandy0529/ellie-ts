@@ -1,6 +1,10 @@
 {
   class minji {
-    constructor(public name: string, public age: number, public job: boolean) {}
+    protected constructor(
+      public name: string,
+      public age: number,
+      public job: boolean
+    ) {}
   }
 
   class minjiBaby extends minji {

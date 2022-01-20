@@ -11,7 +11,7 @@
     private coffeeBean: number = 300;
     private static perShot: number = 10;
 
-    protected constructor(private shot: number) {}
+    constructor(private shot: number) {}
 
     static makeCoffee(shot: number): MakingCoffee {
       return new MakingCoffee(shot);
@@ -67,7 +67,25 @@
     }
   }
 
-  const coffeeMachine: MakingCoffee = MakingCoffee.makeCoffee(1);
-  const latteMachine = new LatteMachine(5, 101);
-  eval('console').log(latteMachine);
+  class SweetSugarCoffee extends MakingCoffee {
+    private sugar(): void {
+      eval('console').log('added sugar . . .');
+    }
+
+    make(shot: number): CoffeeType {
+      const sugar = super.make(shot);
+      this.sugar();
+      return {...sugar, shot: 5};
+    }
+  }
+
+  const allCoffeeRecipe: IMakingCoffee[] = [
+    new MakingCoffee(5),
+    new LatteMachine(5, 101),
+    new SweetSugarCoffee(5),
+  ];
+  allCoffeeRecipe.forEach((item) => {
+    eval('console').log('---------------------------');
+    item.make(1);
+  });
 }
