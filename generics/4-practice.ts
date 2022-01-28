@@ -4,5 +4,5 @@ const obj1 = {
 };
 
 const obj2 = {
-  animal: '🐶',
+  animal: '🐹',
 };
